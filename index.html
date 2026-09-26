@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thiệp Mời Lễ Tốt Nghiệp — Trần Mẫn Mẫn 🎓</title>
+
+  <!-- Meta tags for social sharing -->
+  <meta name="description" content="Trân trọng kính mời bạn đến tham dự Lễ Tốt Nghiệp của Trần Mẫn Mẫn tại Trường Đại học CNTT & TT Việt - Hàn (VKU)" />
+  <meta property="og:title" content="Thiệp Mời Lễ Tốt Nghiệp — Trần Mẫn Mẫn 🎓" />
+  <meta property="og:description" content="Sự hiện diện của bạn sẽ khiến ngày đặc biệt này trở nên ý nghĩa hơn rất nhiều!" />
+  <meta property="og:image" content="assets/invitation-card.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background MP3 Audio File -->
+  <audio id="bgAudio" loop preload="auto" src="snaptik.vn_7662731494057659669.mp3"></audio>
+
+  <!-- Floating background canvas -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Fixed Top Control Bar -->
+  <div class="fixed-controls">
+    <button id="soundBtn" class="control-btn" title="Nhạc nền MP3 & Âm thanh" aria-label="Bật/Tắt âm thanh">
+      <span class="sound-icon">🎵</span>
+      <span class="sound-text">Âm nhạc</span>
+    </button>
+    <button id="shareBtn" class="control-btn" title="Chia sẻ thiệp" aria-label="Chia sẻ thiệp">
+      <span>🔗</span>
+      <span class="share-text">Chia sẻ</span>
+    </button>
+  </div>
+
+  <!-- SCREEN 1: WELCOME & ENVELOPE INPUT -->
+  <div id="welcomeScreen" class="screen active">
+    <div class="welcome-card paper-torn-card">
+      <div class="torn-badge">A SPECIAL INVITATION</div>
+      <div class="hero-icon-wrap">
+        <span class="cap-icon">🎓</span>
+      </div>
+      <h1 class="welcome-title">
+        <span class="cursive-sub">Thiệp Mời</span>
+        <span class="serif-main">LỄ TỐT NGHIỆP</span>
+      </h1>
+      <p class="welcome-subtitle cursive-text">
+        "Closing one chapter, opening a new future..."
+      </p>
+
+      <div class="input-section">
+        <label for="guestName">Nhập tên của bạn để mở thiệp riêng:</label>
+        <div class="input-group">
+          <input id="guestName" type="text" maxlength="30" placeholder="Ví dụ: Hoàng, Nam, Linh..." autocomplete="off" />
+          <button id="openBtn" class="navy-pill-btn">
+            <span>Mở Thiệp & Phát Nhạc</span>
+            <span class="btn-sparkle">✨</span>
+          </button>
+        </div>
+        <p id="errorMsg" class="error-msg"></p>
+      </div>
+
+      <!-- 3D Interactive Envelope -->
+      <div class="envelope-wrapper">
+        <div class="envelope" id="envelope">
+          <div class="envelope-flap"></div>
+          <div class="envelope-pocket"></div>
+          <div class="wax-seal" id="waxSeal">
+            <span class="seal-icon">🎓</span>
+            <span class="seal-text">VKU</span>
+          </div>
+        </div>
+      </div>
+      <p class="envelope-hint">Bấm "Mở Thiệp" để tự động phát nhạc nền & khám phá 💌</p>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: MAIN INVITATION WEBSITE -->
+  <div id="mainWebsite" class="main-website">
+    
+    <!-- HEADER HERO BANNER -->
+    <header class="paper-section hero-banner">
+      <div class="container text-center">
+        <p class="cursive-quote">Closing one chapter, opening a new future...</p>
+        <div class="vk-badge">🎓 VKU GRADUATION CEREMONY 2026</div>
+      </div>
+    </header>
+
+    <!-- SECTION 1: THÂN MỜI & CALENDAR WIDGET -->
+    <section class="paper-section than-moi-section">
+      <div class="container">
+        <div class="than-moi-grid reveal">
+          <!-- Left: Invitation Card -->
+          <div class="invitation-paper-card">
+            <h2 class="section-serif-title">THÂN MỜI</h2>
+            <div class="guest-cursive-name" id="displayName">Mọi Người</div>
+            <p class="invite-intro-desc">
+              Đến tham dự Lễ Tốt Nghiệp của <strong>Trần Mẫn Mẫn</strong> tại Trường Đại học CNTT & TT Việt - Hàn (VKU). 
+              Sự hiện diện của bạn là niềm vinh hạnh lớn nhất của Mẫn Mẫn!
+            </p>
+            <p class="invite-time-text">🕒 <strong>10:00, Thứ Tư (Ngày 30/09/2026)</strong></p>
+
+            <div class="big-date-display">
+              <div class="date-col">
+                <span class="date-label">THÁNG 09</span>
+              </div>
+              <div class="date-col number-col">
+                <span class="big-day">30</span>
+              </div>
+              <div class="date-col">
+                <span class="date-label">NĂM 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Calendar Widget -->
+          <div class="calendar-box">
+            <div class="calendar-header">
+              <span>2026.09</span>
+            </div>
+            <div class="calendar-grid">
+              <span class="day-name">MON</span>
+              <span class="day-name">TUE</span>
+              <span class="day-name">WED</span>
+              <span class="day-name">THU</span>
+              <span class="day-name">FRI</span>
+              <span class="day-name">SAT</span>
+              <span class="day-name">SUN</span>
+
+              <span class="day-num empty"></span>
+              <span class="day-num">1</span>
+              <span class="day-num">2</span>
+              <span class="day-num">3</span>
+              <span class="day-num">4</span>
+              <span class="day-num">5</span>
+              <span class="day-num">6</span>
+
+              <span class="day-num">7</span>
+              <span class="day-num">8</span>
+              <span class="day-num">9</span>
+              <span class="day-num">10</span>
+              <span class="day-num">11</span>
+              <span class="day-num">12</span>
+              <span class="day-num">13</span>
+
+              <span class="day-num">14</span>
+              <span class="day-num">15</span>
+              <span class="day-num">16</span>
+              <span class="day-num">17</span>
+              <span class="day-num">18</span>
+              <span class="day-num">19</span>
+              <span class="day-num">20</span>
+
+              <span class="day-num">21</span>
+              <span class="day-num">22</span>
+              <span class="day-num">23</span>
+              <span class="day-num">24</span>
+              <span class="day-num">25</span>
+              <span class="day-num">26</span>
+              <span class="day-num">27</span>
+
+              <span class="day-num">28</span>
+              <span class="day-num">29</span>
+              <span class="day-num highlight-event" title="Lễ Tốt Nghiệp!">30</span>
+              <span class="day-num empty"></span>
+              <span class="day-num empty"></span>
+              <span class="day-num empty"></span>
+              <span class="day-num empty"></span>
+            </div>
+            <div class="watermark-year">2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="torn-divider"></div>
+    </section>
+
+    <!-- SECTION 2: THANH XUÂN CỦA CHÚNG MÌNH & ANIMATED CONTINUOUS 35mm FILM STRIP -->
+    <section class="paper-section youth-section">
+      <div class="container">
+        <div class="youth-header reveal">
+          <h2 class="cursive-main-title">Thanh Xuân</h2>
+          <p class="cursive-sub-title">Của Chúng Mình</p>
+        </div>
+
+        <div class="youth-content-grid reveal">
+          <!-- Left: 35mm Film Strip Reel Scrolling Automatically -->
+          <div class="film-strip-container">
+            <div class="film-strip-holes-top"></div>
+            <div class="film-strip-viewport">
+              <div class="film-strip-track">
+                <!-- Group 1 -->
+                <div class="film-frame" data-src="assets/photo1.jpg" data-caption="Trần Mẫn Mẫn cùng Bằng tốt nghiệp & Huy chương rực rỡ">
+                  <img src="assets/photo1.jpg" alt="Khoảnh khắc tốt nghiệp 1" />
+                </div>
+                <div class="film-frame" data-src="assets/photo2.jpg" data-caption="Khoảnh khắc xì tin với pháo hoa dây sắc màu">
+                  <img src="assets/photo2.jpg" alt="Khoảnh khắc tốt nghiệp 2" />
+                </div>
+                <div class="film-frame" data-src="assets/photo3.jpg" data-caption="Tươi tắn bên đóa hoa hồng xanh trắng">
+                  <img src="assets/photo3.jpg" alt="Khoảnh khắc tốt nghiệp 3" />
+                </div>
+                <div class="film-frame" data-src="assets/invitation-card.jpg" data-caption="Thiệp mời chính thức VKU">
+                  <img src="assets/invitation-card.jpg" alt="Thiệp mời tốt nghiệp" />
+                </div>
+
+                <!-- Duplicated Group 2 for Seamless Loop -->
+                <div class="film-frame" data-src="assets/photo1.jpg" data-caption="Trần Mẫn Mẫn cùng Bằng tốt nghiệp & Huy chương rực rỡ">
+                  <img src="assets/photo1.jpg" alt="Khoảnh khắc tốt nghiệp 1" />
+                </div>
+                <div class="film-frame" data-src="assets/photo2.jpg" data-caption="Khoảnh khắc xì tin với pháo hoa dây sắc màu">
+                  <img src="assets/photo2.jpg" alt="Khoảnh khắc tốt nghiệp 2" />
+                </div>
+                <div class="film-frame" data-src="assets/photo3.jpg" data-caption="Tươi tắn bên đóa hoa hồng xanh trắng">
+                  <img src="assets/photo3.jpg" alt="Khoảnh khắc tốt nghiệp 3" />
+                </div>
+                <div class="film-frame" data-src="assets/invitation-card.jpg" data-caption="Thiệp mời chính thức VKU">
+                  <img src="assets/invitation-card.jpg" alt="Thiệp mời tốt nghiệp" />
+                </div>
+              </div>
+            </div>
+            <div class="film-strip-holes-bottom"></div>
+          </div>
+
+          <!-- Right: Hero Photo Showcase with Realistic Ripped Paper Edges -->
+          <div class="hero-photo-showcase">
+            <div class="torn-paper-photo-wrap">
+              <!-- Top & Bottom Jagged Ripped Paper Edges -->
+              <div class="torn-edge-overlay top-torn"></div>
+              
+              <img src="assets/photo3.jpg" alt="Trần Mẫn Mẫn tốt nghiệp" class="hero-grad-img" />
+              
+              <div class="torn-edge-overlay bottom-torn"></div>
+              <div class="photo-tag-badge">Trần Mẫn Mẫn — Class of 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="torn-divider"></div>
+    </section>
+
+    <!-- SECTION 3: ĐỊA ĐIỂM (LOCATION & MAP) -->
+    <section class="paper-section location-section">
+      <div class="container">
+        <h2 class="section-serif-title text-center reveal">ĐỊA ĐIỂM</h2>
+        
+        <div class="location-grid reveal">
+          <div class="location-paper-card">
+            <div class="loc-icon">🏫</div>
+            <h3 class="uni-fullname">Trường Đại học Công Nghệ Thông Tin và Truyền Thông Việt Hàn (VKU)</h3>
+            <p class="uni-address">470 Trần Đại Nghĩa, Phường Hòa Quý, Q. Ngũ Hành Sơn, Đà Nẵng (Khu vực K)</p>
+            <p class="uni-contact">📞 Điện thoại: <strong>0905 492 957</strong></p>
+
+            <div class="map-actions-row">
+              <button id="copyAddressBtn" class="navy-action-btn">📋 Sao chép địa chỉ</button>
+              <button id="addCalendarBtn" class="navy-action-btn">📅 Thêm vào Google Lịch</button>
+            </div>
+          </div>
+
+          <!-- Interactive Map Holder -->
+          <div class="map-card-wrapper">
+            <div class="map-preview-holder">
+              <iframe
+                title="Bản đồ chỉ đường VKU"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3835.748364121404!2d108.2497042758414!3d15.975260241940982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142108997dc971f%3A0x1295cb3d313469c9!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDTkVUICYgVFQgVmnhu4d0IC0gSMOgbg!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s"
+                width="100%" height="320" style="border:0; border-radius: 16px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+              <a href="https://maps.google.com/?q=Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+CNTT+%26+TT+Vi%E1%BB%87t+-+H%C3%A0n" target="_blank" rel="noopener" class="open-map-badge">
+                Open in Maps ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="torn-divider"></div>
+    </section>
+
+    <!-- SECTION 4: LƯU BÚT (EMOTIONAL LETTER) -->
+    <section class="paper-section luu-but-section">
+      <div class="container text-center">
+        <h2 class="section-serif-title reveal">LƯU BÚT</h2>
+        
+        <div class="luu-but-card reveal">
+          <p class="luu-but-paragraph">
+            "Bốn năm đại học khép lại bằng một ngày thật đặc biệt. Nhìn lại chặng đường đã qua, Trần Mẫn Mẫn biết ơn những lần cố gắng không bỏ cuộc, những bài học quý giá và những người bạn đã cùng mình đi qua tuổi trẻ rực rỡ nhất."
+          </p>
+          <p class="luu-but-paragraph">
+            "Cảm ơn gia đình đã luôn là điểm tựa, cảm ơn thầy cô đã tận tình dìu dắt, cảm ơn bạn bè đã đồng hành để thanh xuân này trở thành một kỷ niệm vô giá."
+          </p>
+          <div class="luu-but-signature">
+            <span>Thân thương,</span>
+            <strong class="sig-name-text">Trần Mẫn Mẫn ♡</strong>
+          </div>
+        </div>
+      </div>
+      <div class="torn-divider"></div>
+    </section>
+
+    <!-- SECTION 5: GỬI LỜI NHẮN (WISH FORM & COMMENTS FEED) -->
+    <section class="paper-section wish-section">
+      <div class="container">
+        <h2 class="section-serif-title text-center reveal">GỬI LỜI NHẮN</h2>
+
+        <div class="wish-grid reveal">
+          <!-- Left: Input Form -->
+          <div class="wish-form-box">
+            <form id="wishForm" class="wish-input-form">
+              <div class="form-field">
+                <label for="wishName">Tên của bạn là?</label>
+                <input type="text" id="wishName" required placeholder="Ví dụ: Hoàng, Linh, Nam..." autocomplete="off" />
+              </div>
+              <div class="form-field">
+                <label for="wishText">Gửi lời chúc nha:</label>
+                <textarea id="wishText" rows="4" required placeholder="Viết lời chúc ý nghĩa gửi tới Trần Mẫn Mẫn..."></textarea>
+              </div>
+              <button type="submit" class="submit-wish-pill-btn">
+                <span>✈ GỬI LỜI CHÚC NGAY</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Right: Comments Feed Wall -->
+          <div class="comments-feed" id="wishesWall">
+            <!-- Dynamically rendered wishes -->
+          </div>
+        </div>
+      </div>
+      <div class="torn-divider"></div>
+    </section>
+
+    <!-- SECTION 6: THANK YOU & FOOTER -->
+    <section class="paper-section thank-you-section">
+      <div class="container text-center">
+        <div class="thank-you-card reveal">
+          <h2 class="thank-you-cursive">Thank You</h2>
+          <div class="thank-you-photo-wrap">
+            <img src="assets/photo1.jpg" alt="Cảm ơn bạn" class="thank-you-img" />
+          </div>
+          <p class="thank-you-desc">
+            "Cảm ơn vì đã cùng mình đi qua một chặng đường đáng nhớ. <br />
+            Sự hiện diện của bạn sẽ khiến ngày đặc biệt này trở nên ý nghĩa hơn rất nhiều!"
+          </p>
+          <div class="thank-you-tag">✨ Rất hân hạnh được đón tiếp bạn tại VKU vào ngày 30.09.2026! ✨</div>
+        </div>
+
+        <button id="backToTopBtn" class="back-top-pill-btn">⬆ Trở về đầu trang</button>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="simple-footer text-center">
+      <p>© 2026 Trần Mẫn Mẫn — VKU Graduation Ceremony Invitation</p>
+    </footer>
+  </div>
+
+  <!-- LIGHTBOX MODAL FOR IMAGES -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lightboxClose" class="lightbox-close" aria-label="Đóng">&times;</button>
+    <button id="lightboxPrev" class="lightbox-arrow prev" aria-label="Ảnh trước">&#10094;</button>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="Full preview" />
+      <p id="lightboxCaption" class="lightbox-caption"></p>
+    </div>
+    <button id="lightboxNext" class="lightbox-arrow next" aria-label="Ảnh tiếp">&#10095;</button>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
