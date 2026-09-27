@@ -1,6 +1,6 @@
 /* ==========================================================================
-   GRADUATION INVITATION — RIPPED PAPER & 35mm FILM STYLING
-   Theme: Elegant Torn Paper, MP3 Audio Integration, 35mm Infinite Film Reel
+   GRADUATION INVITATION — ULTIMATE DESKTOP & MOBILE OPTIMIZED STYLING
+   Theme: Elegant Torn Paper, 35mm Infinite Film Reel & Responsive UX
    ========================================================================== */
 
 :root {
@@ -25,6 +25,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -38,6 +39,11 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
+}
+
+button, input, textarea {
+  font-family: inherit;
+  touch-action: manipulation;
 }
 
 /* ==========================================================================
@@ -56,9 +62,9 @@ body {
 
 .fixed-controls {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 100;
+  top: 18px;
+  right: 18px;
+  z-index: 1000;
   display: flex;
   gap: 10px;
 }
@@ -68,12 +74,12 @@ body {
   padding: 0 18px;
   border-radius: 30px;
   border: 1.5px solid rgba(15, 41, 66, 0.15);
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: var(--navy-primary);
   font-size: 14px;
   font-weight: 600;
-  font-family: inherit;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -95,7 +101,7 @@ body {
 }
 
 /* ==========================================================================
-   DESKTOP & MOBILE RESPONSIVE CONTAINER & UTILITIES
+   CONTAINER & COMMON UTILITIES
    ========================================================================== */
 
 .container {
@@ -111,7 +117,7 @@ body {
 
 .section-serif-title {
   font-family: var(--font-serif);
-  font-size: clamp(26px, 4vw, 36px);
+  font-size: clamp(24px, 4vw, 36px);
   font-weight: 700;
   color: var(--navy-primary);
   letter-spacing: 2px;
@@ -246,10 +252,10 @@ body {
   border: 1.5px solid var(--border-light);
   border-radius: 30px;
   font-size: 15px;
-  font-family: inherit;
   outline: none;
   background: #fff;
   transition: all 0.3s;
+  min-height: 48px;
 }
 
 .input-group input:focus {
@@ -265,14 +271,15 @@ body {
   color: #fff;
   font-size: 15px;
   font-weight: 700;
-  font-family: inherit;
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   box-shadow: 0 8px 20px rgba(15, 41, 66, 0.2);
   transition: all 0.3s ease;
   white-space: nowrap;
+  min-height: 48px;
 }
 
 .navy-pill-btn:hover {
@@ -288,7 +295,7 @@ body {
   min-height: 20px;
 }
 
-/* ENVELOPE */
+/* 3D ENVELOPE */
 .envelope-wrapper {
   margin: 25px auto 10px;
   perspective: 1000px;
@@ -593,7 +600,7 @@ body {
   align-items: center;
 }
 
-/* 35mm FILM REEL FRAME ON THE LEFT MATCHING REFERENCE SCREENSHOT */
+/* 35mm FILM REEL FRAME */
 .film-strip-container {
   background: #0d1117;
   border-radius: 16px;
@@ -663,7 +670,7 @@ body {
   transform: scale(1.1);
 }
 
-/* HERO PHOTO SHOWCASE WITH REALISTIC 3D RIPPED PAPER EDGES */
+/* HERO PHOTO SHOWCASE WITH REALISTIC SVG TORN PAPER EDGES */
 .hero-photo-showcase {
   height: 100%;
 }
@@ -689,7 +696,6 @@ body {
   display: block;
 }
 
-/* REALISTIC SVG TORN/RIPPED PAPER EDGE OVERLAYS */
 .torn-edge-overlay {
   position: absolute;
   left: -5%;
@@ -710,7 +716,7 @@ body {
 .torn-edge-overlay.bottom-torn {
   bottom: -2px;
   transform: rotate(180deg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 48' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L0,30 Q20,10 40,28 Q60,45 80,18 Q100,38 120,12 Q140,32 160,18 Q180,42 200,20 Q220,40 240,15 Q260,35 280,18 Q300,42 320,15 Q340,38 360,20 Q380,40 400,25 L400,0 Z' fill='%23ffffff'/%3E%3Cpath d='M0,0 L0,26 Q20,8 40,24 Q60,40 80,15 Q100,34 120,8 Q140,28 160,14 Q180,38 200,16 Q220,36 240,12 Q300,38 320,12 Q340,34 360,16 Q380,36 400,20 L400,0 Z' fill='%23f1f5f9' opacity='0.7'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 48' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L0,30 Q20,10 40,28 Q60,45 80,18 Q100,38 120,12 Q140,32 160,18 Q180,42 200,20 Q220,40 240,15 Q260,35 280,18 Q300,42 320,15 Q340,38 360,20 Q380,40 400,25 L400,0 Z' fill='%23ffffff'/%3E%3Cpath d='M0,0 L0,26 Q20,8 40,24 Q60,40 80,15 Q100,34 120,8 Q140,28 160,14 Q180,38 200,16 Q220,36 240,12 Q260,30 280,14 Q300,38 320,12 Q340,34 360,16 Q380,36 400,20 L400,0 Z' fill='%23f1f5f9' opacity='0.7'/%3E%3C/svg%3E");
   filter: drop-shadow(0 -6px 8px rgba(0, 0, 0, 0.25));
 }
 
@@ -825,7 +831,12 @@ body {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s;
+  min-height: 48px;
+  text-align: center;
 }
 
 .navy-action-btn:hover {
@@ -911,7 +922,6 @@ body {
   border: 1.5px solid var(--border-light);
   border-radius: 12px;
   font-size: 15px;
-  font-family: inherit;
   outline: none;
   transition: all 0.3s;
 }
@@ -935,6 +945,10 @@ body {
   cursor: pointer;
   box-shadow: 0 6px 16px rgba(15, 41, 66, 0.2);
   transition: all 0.3s;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .submit-wish-pill-btn:hover {
@@ -1015,9 +1029,11 @@ body {
 }
 
 .thank-you-tag {
-  font-size: 14px;
-  color: var(--navy-accent);
+  font-size: 15px;
+  color: var(--navy-primary);
   font-weight: 600;
+  margin-top: 15px;
+  letter-spacing: 0.5px;
 }
 
 .back-top-pill-btn {
@@ -1029,6 +1045,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
+  min-height: 46px;
 }
 
 .back-top-pill-btn:hover {
@@ -1046,9 +1063,10 @@ body {
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 2000;
   background: rgba(15, 41, 66, 0.95);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: none;
   place-items: center;
   padding: 20px;
@@ -1107,7 +1125,7 @@ body {
   font-size: 14px;
   opacity: 0;
   pointer-events: none;
-  z-index: 2000;
+  z-index: 3000;
   transition: all 0.3s ease;
 }
 
@@ -1128,23 +1146,77 @@ body {
   transform: translateY(0);
 }
 
-/* RESPONSIVE MEDIA QUERIES FOR MOBILE */
-@media (max-width: 860px) {
+/* ==========================================================================
+   COMPREHENSIVE RESPONSIVE MEDIA QUERIES (DEVICES <= 1024PX)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .container {
+    width: min(100%, 90vw);
+  }
+
   .than-moi-grid,
   .youth-content-grid,
   .location-grid,
   .wish-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 30px;
   }
 
+  /* Fixed Top Controls Bar Compact View */
+  .fixed-controls {
+    top: 12px;
+    right: 12px;
+  }
+
+  .fixed-controls .sound-text,
+  .fixed-controls .share-text {
+    display: none;
+  }
+
+  .control-btn {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  /* Welcome Screen Input Group Stack */
+  .input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-group input {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navy-pill-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Location Map Actions Stack */
+  .map-actions-row {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .navy-action-btn {
+    width: 100%;
+  }
+
+  /* 35mm Film Strip Reel Horizontal Scroll on Tablets & Mobile */
   .film-strip-viewport {
     height: 180px;
   }
 
   .film-strip-track {
     flex-direction: row;
-    animation: filmScrollHorizontal 15s linear infinite;
+    animation: filmScrollHorizontal 16s linear infinite;
   }
 
   @keyframes filmScrollHorizontal {
@@ -1153,33 +1225,117 @@ body {
   }
 
   .film-frame {
-    width: 220px;
+    width: 210px;
     flex-shrink: 0;
   }
 
+  .hero-photo-showcase {
+    min-height: auto;
+  }
+
+  .torn-paper-photo-wrap,
+  .hero-grad-img {
+    min-height: 380px;
+    max-height: 520px;
+  }
+}
+
+/* MOBILE PHONE BREAKPOINT (<= 768PX) */
+@media (max-width: 768px) {
+  .paper-section {
+    padding: 50px 0;
+  }
+
+  .welcome-card {
+    padding: 35px 20px;
+  }
+
+  .invitation-paper-card {
+    padding: 35px 20px;
+  }
+
+  .calendar-grid {
+    padding: 16px 10px;
+    gap: 8px;
+  }
+
+  .day-num {
+    font-size: 13px;
+    padding: 6px 0;
+  }
+
   .big-date-display {
-    gap: 10px;
+    gap: 12px;
   }
 
-  .map-actions-row {
-    flex-direction: column;
+  .big-day {
+    font-size: 38px;
   }
 
-  .hero-grad-img, .torn-paper-photo-wrap {
-    min-height: 360px;
+  .location-paper-card {
+    padding: 30px 20px;
   }
 
-  .fixed-controls .sound-text,
-  .fixed-controls .share-text {
-    display: none;
+  .map-preview-holder {
+    min-height: 250px;
+    height: 250px;
+  }
+
+  .luu-but-card {
+    padding: 35px 22px;
+  }
+
+  .luu-but-paragraph {
+    font-size: 20px;
+    line-height: 1.7;
+  }
+
+  .sig-name-text {
+    font-size: 34px;
+  }
+
+  .wish-form-box {
+    padding: 25px 18px;
   }
 }
 
-.thank-you-tag {
-  font-size: 15px;
-  color: var(--navy-primary);
-  font-weight: 600;
-  margin-top: 15px;
-  letter-spacing: 0.5px;
-}
+/* SMALL MOBILE SCREENS (<= 480PX) */
+@media (max-width: 480px) {
+  .paper-section {
+    padding: 40px 0;
+  }
 
+  .cursive-quote {
+    font-size: 32px;
+  }
+
+  .guest-cursive-name {
+    font-size: 42px;
+  }
+
+  .cursive-main-title {
+    font-size: 44px;
+  }
+
+  .cursive-sub-title {
+    font-size: 28px;
+  }
+
+  .thank-you-cursive {
+    font-size: 55px;
+  }
+
+  .film-strip-viewport {
+    height: 150px;
+  }
+
+  .film-frame {
+    width: 170px;
+  }
+
+  .torn-paper-photo-wrap,
+  .hero-grad-img {
+    min-height: 300px;
+    max-height: 400px;
+  }
+}
