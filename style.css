@@ -1,6 +1,6 @@
 /* ==========================================================================
    GRADUATION INVITATION — ULTIMATE DESKTOP & MOBILE OPTIMIZED STYLING
-   Theme: Elegant Torn Paper, 35mm Infinite Film Reel & Responsive UX
+   Theme: Elegant Torn Paper, Sky Blue Watercolor Card & 11 Photo Album
    ========================================================================== */
 
 :root {
@@ -113,6 +113,26 @@ button, input, textarea {
 
 .text-center {
   text-align: center;
+}
+
+.section-title {
+  margin-bottom: 35px;
+}
+
+.section-title .sub-title {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--navy-accent);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-top: 6px;
 }
 
 .section-serif-title {
@@ -295,7 +315,7 @@ button, input, textarea {
   min-height: 20px;
 }
 
-/* 3D ENVELOPE */
+/* ENVELOPE */
 .envelope-wrapper {
   margin: 25px auto 10px;
   perspective: 1000px;
@@ -571,6 +591,62 @@ button, input, textarea {
   z-index: 1;
 }
 
+/* WATERCOLOR SKY BLUE NOTE CARD MATCHING USER REFERENCE */
+.watercolor-note-wrap {
+  margin-top: 45px;
+}
+
+.watercolor-note-card {
+  background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 50%, #eff6ff 100%);
+  border: 1.5px solid #bfdbfe;
+  border-radius: 24px;
+  padding: 40px 35px;
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.1);
+  position: relative;
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.tape-sticker {
+  position: absolute;
+  top: -14px;
+  left: 40px;
+  width: 100px;
+  height: 28px;
+  background: rgba(147, 197, 253, 0.75);
+  transform: rotate(-4deg);
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.note-paragraph {
+  font-size: 17px;
+  color: var(--navy-primary);
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.note-paragraph.note-highlight {
+  font-family: var(--font-handwriting);
+  font-size: 24px;
+  color: var(--navy-accent);
+  font-weight: 700;
+}
+
+.note-doodles {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.doodle-icon {
+  font-size: 24px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
 /* ==========================================================================
    SECTION 2: THANH XUÂN CỦA CHÚNG MÌNH & RIPPED PAPER SHOWCASE
    ========================================================================== */
@@ -636,7 +712,7 @@ button, input, textarea {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  animation: filmScrollVertical 20s linear infinite;
+  animation: filmScrollVertical 24s linear infinite;
 }
 
 .film-strip-viewport:hover .film-strip-track {
@@ -716,7 +792,7 @@ button, input, textarea {
 .torn-edge-overlay.bottom-torn {
   bottom: -2px;
   transform: rotate(180deg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 48' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L0,30 Q20,10 40,28 Q60,45 80,18 Q100,38 120,12 Q140,32 160,18 Q180,42 200,20 Q220,40 240,15 Q260,35 280,18 Q300,42 320,15 Q340,38 360,20 Q380,40 400,25 L400,0 Z' fill='%23ffffff'/%3E%3Cpath d='M0,0 L0,26 Q20,8 40,24 Q60,40 80,15 Q100,34 120,8 Q140,28 160,14 Q180,38 200,16 Q220,36 240,12 Q260,30 280,14 Q300,38 320,12 Q340,34 360,16 Q380,36 400,20 L400,0 Z' fill='%23f1f5f9' opacity='0.7'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 48' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L0,30 Q20,10 40,28 Q60,45 80,18 Q100,38 120,12 Q140,32 160,18 Q180,42 200,20 Q220,40 240,15 Q260,35 280,18 Q300,42 320,15 Q340,38 360,20 Q380,40 400,25 L400,0 Z' fill='%23ffffff'/%3E%3Cpath d='M0,0 L0,26 Q20,8 40,24 Q60,40 80,15 Q100,34 120,8 Q140,28 160,14 Q180,38 200,16 Q220,36 240,12 Q300,38 320,12 Q340,34 360,16 Q380,36 400,20 L400,0 Z' fill='%23f1f5f9' opacity='0.7'/%3E%3C/svg%3E");
   filter: drop-shadow(0 -6px 8px rgba(0, 0, 0, 0.25));
 }
 
@@ -736,7 +812,96 @@ button, input, textarea {
 }
 
 /* ==========================================================================
-   SECTION 3: ĐỊA ĐIỂM
+   SECTION 3: BỘ SƯU TẬP ALBUM 11 ẢNH KỶ NIỆM
+   ========================================================================== */
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.album-card.polaroid {
+  background: #ffffff;
+  padding: 14px 14px 22px;
+  border-radius: 14px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(15, 41, 66, 0.06);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.album-card.polaroid:nth-child(odd) {
+  transform: rotate(-1.5deg);
+}
+
+.album-card.polaroid:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+.album-card.polaroid:hover {
+  transform: translateY(-8px) rotate(0deg) scale(1.03);
+  box-shadow: 0 20px 40px rgba(15, 41, 66, 0.18);
+  z-index: 10;
+}
+
+.album-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  background: #f1f5f9;
+}
+
+.album-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.album-card.polaroid:hover .album-img-wrap img {
+  transform: scale(1.08);
+}
+
+.img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 41, 66, 0.4);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.album-card.polaroid:hover .img-overlay {
+  opacity: 1;
+}
+
+.img-overlay span {
+  background: #ffffff;
+  color: var(--navy-primary);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.album-caption h4 {
+  font-size: 15px;
+  color: var(--navy-primary);
+  margin-bottom: 4px;
+}
+
+.album-caption p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   SECTION 4: ĐỊA ĐIỂM
    ========================================================================== */
 
 .location-grid {
@@ -845,7 +1010,7 @@ button, input, textarea {
 }
 
 /* ==========================================================================
-   SECTION 4: LƯU BÚT
+   SECTION 5: LƯU BÚT
    ========================================================================== */
 
 .luu-but-card {
@@ -884,7 +1049,7 @@ button, input, textarea {
 }
 
 /* ==========================================================================
-   SECTION 5: GỬI LỜI NHẮN
+   SECTION 6: GỬI LỜI NHẮN
    ========================================================================== */
 
 .wish-grid {
@@ -990,7 +1155,7 @@ button, input, textarea {
 }
 
 /* ==========================================================================
-   SECTION 6: THANK YOU & FOOTER
+   SECTION 7: THANK YOU & FOOTER
    ========================================================================== */
 
 .thank-you-card {
@@ -1147,7 +1312,7 @@ button, input, textarea {
 }
 
 /* ==========================================================================
-   COMPREHENSIVE RESPONSIVE MEDIA QUERIES (DEVICES <= 1024PX)
+   RESPONSIVE MEDIA QUERIES
    ========================================================================== */
 
 @media (max-width: 1024px) {
@@ -1163,7 +1328,11 @@ button, input, textarea {
     gap: 30px;
   }
 
-  /* Fixed Top Controls Bar Compact View */
+  .album-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
   .fixed-controls {
     top: 12px;
     right: 12px;
@@ -1182,7 +1351,6 @@ button, input, textarea {
     border-radius: 50%;
   }
 
-  /* Welcome Screen Input Group Stack */
   .input-group {
     flex-direction: column;
     gap: 10px;
@@ -1198,7 +1366,6 @@ button, input, textarea {
     justify-content: center;
   }
 
-  /* Location Map Actions Stack */
   .map-actions-row {
     flex-direction: column;
     gap: 10px;
@@ -1209,14 +1376,13 @@ button, input, textarea {
     width: 100%;
   }
 
-  /* 35mm Film Strip Reel Horizontal Scroll on Tablets & Mobile */
   .film-strip-viewport {
     height: 180px;
   }
 
   .film-strip-track {
     flex-direction: row;
-    animation: filmScrollHorizontal 16s linear infinite;
+    animation: filmScrollHorizontal 18s linear infinite;
   }
 
   @keyframes filmScrollHorizontal {
@@ -1240,7 +1406,6 @@ button, input, textarea {
   }
 }
 
-/* MOBILE PHONE BREAKPOINT (<= 768PX) */
 @media (max-width: 768px) {
   .paper-section {
     padding: 50px 0;
@@ -1252,6 +1417,18 @@ button, input, textarea {
 
   .invitation-paper-card {
     padding: 35px 20px;
+  }
+
+  .watercolor-note-card {
+    padding: 30px 20px;
+  }
+
+  .note-paragraph {
+    font-size: 15px;
+  }
+
+  .note-paragraph.note-highlight {
+    font-size: 20px;
   }
 
   .calendar-grid {
@@ -1299,10 +1476,14 @@ button, input, textarea {
   }
 }
 
-/* SMALL MOBILE SCREENS (<= 480PX) */
 @media (max-width: 480px) {
   .paper-section {
     padding: 40px 0;
+  }
+
+  .album-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
   }
 
   .cursive-quote {

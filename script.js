@@ -1,5 +1,5 @@
 /**
- * GRADUATION INVITATION — MP3 AUDIO & RIPPED PAPER INTERACTIVE ENGINE
+ * GRADUATION INVITATION — MP3 AUDIO & ALL PHOTOS LIGHTBOX ENGINE
  * Host: Trần Mẫn Mẫn — VKU Class of 2026
  */
 
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     wishNameInput.value = finalName;
 
     envelope.classList.add("open");
-    startMp3Audio(); // Play MP3 sound file automatically!
+    startMp3Audio();
 
     setTimeout(() => {
       welcomeScreen.classList.remove("active");
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     reveals.forEach((el) => observer.observe(el));
   }
 
-  // --- LIGHTBOX MODAL SYSTEM ---
+  // --- LIGHTBOX MODAL SYSTEM (SUPPORT ALL 11 PHOTOS) ---
   const lightbox = $("#lightbox");
   const lightboxImg = $("#lightboxImg");
   const lightboxCaption = $("#lightboxCaption");
@@ -170,19 +170,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxPrev = $("#lightboxPrev");
   const lightboxNext = $("#lightboxNext");
 
-  const filmFrames = $$(".film-frame");
   let currentGalleryIndex = 0;
   let galleryItems = [];
 
-  filmFrames.forEach((frame, idx) => {
-    galleryItems.push({
-      src: frame.getAttribute("data-src"),
-      caption: frame.getAttribute("data-caption")
+  // Register both album cards & film frames into unified Lightbox slider
+  const clickableItems = $$(".album-card, .film-frame");
+  const registeredSources = new Set();
+
+  clickableItems.forEach((item) => {
+    const src = item.getAttribute("data-src");
+    const caption = item.getAttribute("data-caption");
+    if (!src) return;
+
+    if (!registeredSources.has(src)) {
+      registeredSources.add(src);
+      galleryItems.push({ src, caption });
+    }
+
+    item.addEventListener("click", () => {
+      const targetIndex = galleryItems.findIndex((g) => g.src === src);
+      openLightbox(targetIndex >= 0 ? targetIndex : 0);
     });
-    frame.addEventListener("click", () => openLightbox(idx % 4));
   });
 
   function openLightbox(index) {
+    if (galleryItems.length === 0) return;
     currentGalleryIndex = index;
     updateLightbox();
     lightbox.classList.add("active");
@@ -203,11 +215,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   lightboxClose.addEventListener("click", closeLightbox);
   lightboxPrev.addEventListener("click", () => {
-    currentGalleryIndex = (currentGalleryIndex - 1 + 4) % 4;
+    currentGalleryIndex = (currentGalleryIndex - 1 + galleryItems.length) % galleryItems.length;
     updateLightbox();
   });
   lightboxNext.addEventListener("click", () => {
-    currentGalleryIndex = (currentGalleryIndex + 1) % 4;
+    currentGalleryIndex = (currentGalleryIndex + 1) % galleryItems.length;
     updateLightbox();
   });
   lightbox.addEventListener("click", (e) => {
