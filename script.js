@@ -233,6 +233,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "ArrowRight") lightboxNext.click();
   });
 
+  // --- ALBUM COMPACT EXPANDER TOGGLE ---
+  const toggleAlbumBtn = $("#toggleAlbumBtn");
+  const extraAlbumPhotos = $("#extraAlbumPhotos");
+
+  if (toggleAlbumBtn && extraAlbumPhotos) {
+    toggleAlbumBtn.addEventListener("click", () => {
+      const isHidden = extraAlbumPhotos.classList.contains("hidden");
+      if (isHidden) {
+        extraAlbumPhotos.classList.remove("hidden");
+        toggleAlbumBtn.querySelector("span").textContent = "⬆ Thu gọn album ảnh 📸";
+      } else {
+        extraAlbumPhotos.classList.add("hidden");
+        toggleAlbumBtn.querySelector("span").textContent = "📸 Mở rộng xem tất cả 11 ảnh tốt nghiệp ⬇";
+      }
+    });
+  }
+
   // --- COMMENTS FEED SYSTEM ---
   const wishForm = $("#wishForm");
   const wishesWall = $("#wishesWall");
